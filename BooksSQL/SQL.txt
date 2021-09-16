@@ -1,0 +1,28 @@
+CREATE DATABASE publishingHouse;
+
+CREATE TABLE books
+(
+    ISBN varchar(30) PRIMARY KEY,
+    authors varchar(30),
+    name varchar(30),
+    numberOfPages INTEGER,
+    genre varchar(30),
+    publicationDate date
+);
+
+CREATE TABLE authors
+(
+    firstName varchar(30),
+    lastName varchar(30),
+    booksISBN varchar(30) REFERENCES books (ISBN)
+);
+
+INSERT INTO books VALUES ('1-2-3-4-5', 'Булгаков', 'Мастер и Маргарита', 513, 'Фантастика', '1966-01-08');
+
+INSERT INTO authors VALUES ('Михаил', 'Булгаков', '1-2-3-4-5');
+
+SELECT authors, name FROM books WHERE genre='Фантастика';
+
+
+
+
